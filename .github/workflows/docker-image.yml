@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz && tar xf ngrok-v3-stable-linux-amd64.tgz && ./ngrok config add-authtoken 2Nit2Ynm4kSnuMM6laQiW4lKohh_4AW8PUwmoDRkC9AiEddc5 && ./ngrok http 8080 & docker run -p 8080:80 -e USER=rinne -e PASSWORD=1 -e RESOLUTION=576x1024 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc 
+      run: wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz && tar xf ngrok-v3-stable-linux-amd64.tgz && ./ngrok config add-authtoken 2Nit2Ynm4kSnuMM6laQiW4lKohh_4AW8PUwmoDRkC9AiEddc5 && ./ngrok http 8080 --region=jp & docker run -p 8080:80 -e USER=rinne -e PASSWORD=1 -e RESOLUTION=576x1024 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc 
