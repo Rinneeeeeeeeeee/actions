@@ -1,0 +1,18 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker run -p 8080:80 -e USER=rinne -e PASSWORD=1 -e RESOLUTION=576x1024 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
