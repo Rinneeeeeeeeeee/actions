@@ -15,4 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz && tar xf ngrok-v3-stable-linux-amd64.tgz && ./ngrok config add-authtoken 2Nit2Ynm4kSnuMM6laQiW4lKohh_4AW8PUwmoDRkC9AiEddc5 && docker run --privileged --shm-size 1g -d -p 8080:10000 -e VNC_PASSWD=password -e PORT=10000 -e AUDIO_PORT=1699 -e WEBSOCKIFY_PORT=6900 -e VNC_PORT=5900 -e SCREEN_WIDTH=1024 -e SCREEN_HEIGHT=768 -e SCREEN_DEPTH=24 thuonghai2711/ubuntu-novnc-pulseaudio:20.04 && tail -f /dev/null
+      run: wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz && tar xf ngrok-v3-stable-linux-amd64.tgz && ./ngrok config add-authtoken 2Nit2Ynm4kSnuMM6laQiW4lKohh_4AW8PUwmoDRkC9AiEddc5 && ./ngrok http 8080 &
+    - name: Build
+      run: docker run --privileged --shm-size 10g -d -p 8080:10000 -e VNC_PASSWD=password -e PORT=10000 -e AUDIO_PORT=1699 -e WEBSOCKIFY_PORT=6900 -e VNC_PORT=5900 -e SCREEN_WIDTH=1024 -e SCREEN_HEIGHT=768 -e SCREEN_DEPTH=24 thuonghai2711/ubuntu-novnc-pulseaudio:20.04 && tail -f /dev/null
