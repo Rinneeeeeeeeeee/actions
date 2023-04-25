@@ -1,12 +1,12 @@
-name: Tạo
+name: Host
 
 on: 
   workflow_dispatch:
     
 jobs:
   Ok:
-    timeout-minutes: 600
+    timeout-minutes: 600000
     runs-on: self-hosted
     steps:
-    - name: Tải giao diện
-      run: sudo apt update && sudo dpkg --add-architecture i386 && sudo apt update && sudo apt install wine32 wine64 -y
+    - name: Giữ cho máy luôn chạy
+      run: tail -f
