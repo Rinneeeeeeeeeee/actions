@@ -2,18 +2,11 @@ name: Tạo
 
 on: 
   workflow_dispatch:
-    inputs:
-      authcode:
-        description: 'Nhập mã'
-        required: true
-      pincode:
-        description: 'Mã pin'
-        required: true
-  
+    
 jobs:
-  configlet:
+  Ok:
     timeout-minutes: 600
-    runs-on: runs-on: self-hosted
+    runs-on: self-hosted
     steps:
     - name: Tải giao diện
       run: sudo apt update && sudo dpkg --add-architecture i386 && sudo apt update && sudo apt install wine32 wine64 -y
