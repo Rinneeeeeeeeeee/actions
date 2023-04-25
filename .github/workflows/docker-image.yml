@@ -11,11 +11,11 @@ on:
         required: true
   
 jobs:
-  configlet:
-   timeout-minutes: 600
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 240
+    configlet:
+    timeout-minutes: 600
     steps:
     - uses: actions/checkout@v3
     - name: Tải giao diện
